@@ -3201,7 +3201,6 @@ id bounceStart
 id btnAddToCart
 id btnBack
 id btnCart
-id btnCheckout
 id btnGoRegister
 id btnLogin
 id btnMinus

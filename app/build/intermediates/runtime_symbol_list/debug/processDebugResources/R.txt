@@ -3200,7 +3200,6 @@ int id bounceStart 0x7f080062
 int id btnAddToCart 0x7f080063
 int id btnBack 0x7f080064
 int id btnCart 0x7f080213
-int id btnCheckout 0x7f080065
 int id btnGoRegister 0x7f080066
 int id btnLogin 0x7f080067
 int id btnMinus 0x7f080068

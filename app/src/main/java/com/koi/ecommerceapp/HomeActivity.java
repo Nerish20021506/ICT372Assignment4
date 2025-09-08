@@ -2,8 +2,7 @@ package com.koi.ecommerceapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,58 +17,31 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private RecyclerView rvProducts;
-    private EditText etSearch;
-    private ProductAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home); // 👈 match your actual layout name
 
-        rvProducts = findViewById(R.id.rvProducts);
-        etSearch = findViewById(R.id.etSearch);
+        EditText etSearch = findViewById(R.id.etSearch);
+        Button btnCart = findViewById(R.id.btnCart);
+        RecyclerView rvProducts = findViewById(R.id.rvProducts);
 
-        // Load products from repository
-        final List<Product> allProducts = FakeRepository.getProducts();
-
-        // Setup adapter → open detail when item clicked
-        adapter = new ProductAdapter(allProducts, product -> {
-            Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
-            intent.putExtra("productId", product.id);
-            intent.putExtra("productName", product.name);
-            intent.putExtra("productDescription", product.description);
-            intent.putExtra("productPrice", product.price);
+        // --- Cart button navigation ---
+        btnCart.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(intent);
         });
 
+        // --- Product list setup ---
         rvProducts.setLayoutManager(new LinearLayoutManager(this));
-        rvProducts.setAdapter(adapter);
 
-        // Simple search → launch SearchActivity when user hits Enter
-        etSearch.setOnEditorActionListener((v, actionId, event) -> {
-            String q = etSearch.getText() == null ? "" : etSearch.getText().toString().trim();
-            Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
-            intent.putExtra("query", q);
+        List<Product> products = FakeRepository.getProducts();
+
+        // ✅ Pass BOTH arguments required: (products, listener)
+        rvProducts.setAdapter(new ProductAdapter(products, product -> {
+            Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
+            intent.putExtra("product_id", product.id); // 👈 only send id
             startActivity(intent);
-            return true;
-        });
-    }
-
-    // Inflate menu with Cart option
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
-    }
-
-    // Handle cart tap
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_cart) {
-            startActivity(new Intent(this, CartActivity.class));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        }));
     }
 }

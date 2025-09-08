@@ -13,6 +13,8 @@ import com.koi.ecommerceapp.models.Product;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
+    private Product product;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +28,15 @@ public class ProductDetailActivity extends AppCompatActivity {
         Button btnMinus = findViewById(R.id.btnMinus);
         Button btnPlus = findViewById(R.id.btnPlus);
 
-        // Get product info from intent
-        int id = getIntent().getIntExtra("productId", -1);
-        String name = getIntent().getStringExtra("productName");
-        String desc = getIntent().getStringExtra("productDescription");
-        double price = getIntent().getDoubleExtra("productPrice", 0.0);
+        // ✅ Get product by ID
+        int productId = getIntent().getIntExtra("product_id", -1);
+        product = FakeRepository.getProductById(productId);
 
-        tvName.setText(name);
-        tvPrice.setText("$" + price);
-        tvDescription.setText(desc);
-
-        Product p = new Product(id, name, desc, price);
+        if (product != null) {
+            tvName.setText(product.name);
+            tvPrice.setText(String.format("$%.2f", product.price));
+            tvDescription.setText(product.description);
+        }
 
         // Quantity buttons
         btnMinus.setOnClickListener(v -> {
@@ -52,8 +52,10 @@ public class ProductDetailActivity extends AppCompatActivity {
         // Add to Cart
         btnAddToCart.setOnClickListener(v -> {
             int qty = getQty(etQty);
-            FakeRepository.addToCart(p, qty);
-            Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
+            if (product != null) {
+                FakeRepository.addToCart(product, qty);
+                Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
