@@ -1,0 +1,3 @@
+
+rootProject.name = "ICT372Assignment4"
+include ':app'

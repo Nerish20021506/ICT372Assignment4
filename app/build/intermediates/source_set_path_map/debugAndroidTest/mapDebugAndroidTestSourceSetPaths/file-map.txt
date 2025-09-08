@@ -1,0 +1,4 @@
+com.koi.ecommerceapp.test.app-androidTest-0 C:\Users\Admin\AndroidStudioProjects\Bikki_Electronics\app\build\generated\res\resValues\androidTest\debug
+com.koi.ecommerceapp.test.app-mergeDebugAndroidTestResources-1 C:\Users\Admin\AndroidStudioProjects\Bikki_Electronics\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.koi.ecommerceapp.test.app-mergeDebugAndroidTestResources-2 C:\Users\Admin\AndroidStudioProjects\Bikki_Electronics\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.koi.ecommerceapp.test.app-debugAndroidTest-3 C:\Users\Admin\AndroidStudioProjects\Bikki_Electronics\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
