@@ -3199,6 +3199,8 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnAddToCart
+id btnBack
+id btnCart
 id btnCheckout
 id btnGoRegister
 id btnLogin
@@ -3588,7 +3590,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
-id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3832,7 +3833,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
-layout view_toolbar
+layout view_back_button
 menu menu_home
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
@@ -3867,6 +3868,7 @@ string androidx_startup
 string app_name
 string app_title
 string appbar_scrolling_view_behavior
+string back
 string bottom_sheet_behavior
 string bottomsheet_action_collapse
 string bottomsheet_action_expand

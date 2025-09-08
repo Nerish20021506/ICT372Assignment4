@@ -4,10 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Top app bar -->
-    <include layout="@layout/view_toolbar" />
-
-    <!-- Search bar -->
+    <!-- Search + Cart row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,10 +13,21 @@
 
         <EditText
             android:id="@+id/etSearch"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_weight="1"
             android:hint="@string/hint_search_products"
             android:inputType="text" />
+
+        <Button
+        android:id="@+id/btnCart"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:text="Cart"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:textColor="@android:color/white"/>
+
     </LinearLayout>
 
     <!-- Product list -->

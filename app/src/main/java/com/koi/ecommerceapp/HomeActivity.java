@@ -2,67 +2,70 @@ package com.koi.ecommerceapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.koi.ecommerceapp.adapters.ProductAdapter;
 import com.koi.ecommerceapp.data.FakeRepository;
 import com.koi.ecommerceapp.models.Product;
-import com.koi.ecommerceapp.utils.IntentKeys;
 
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private RecyclerView rv;
+    private RecyclerView rvProducts;
+    private EditText etSearch;
+    private ProductAdapter adapter;
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Toolbar title
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(getString(R.string.app_title)); // BikkiElectronics
-        }
+        rvProducts = findViewById(R.id.rvProducts);
+        etSearch = findViewById(R.id.etSearch);
 
-        rv = findViewById(R.id.rvProducts);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        renderList(FakeRepository.getProducts());
+        // Load products from repository
+        final List<Product> allProducts = FakeRepository.getProducts();
 
-        EditText etSearch = findViewById(R.id.etSearch);
-        etSearch.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override public void afterTextChanged(Editable s) {
-                renderList(FakeRepository.search(s.toString()));
-            }
+        // Setup adapter → open detail when item clicked
+        adapter = new ProductAdapter(allProducts, product -> {
+            Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
+            intent.putExtra("productId", product.id);
+            intent.putExtra("productName", product.name);
+            intent.putExtra("productDescription", product.description);
+            intent.putExtra("productPrice", product.price);
+            startActivity(intent);
+        });
+
+        rvProducts.setLayoutManager(new LinearLayoutManager(this));
+        rvProducts.setAdapter(adapter);
+
+        // Simple search → launch SearchActivity when user hits Enter
+        etSearch.setOnEditorActionListener((v, actionId, event) -> {
+            String q = etSearch.getText() == null ? "" : etSearch.getText().toString().trim();
+            Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
+            intent.putExtra("query", q);
+            startActivity(intent);
+            return true;
         });
     }
 
-    private void renderList(List<Product> products) {
-        rv.setAdapter(new ProductAdapter(products, product -> {
-            Intent i = new Intent(HomeActivity.this, ProductDetailActivity.class);
-            i.putExtra(IntentKeys.PRODUCT_ID, product.id);
-            startActivity(i);
-        }));
-    }
-
-    @Override public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate menu with Cart option
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle cart tap
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_cart) {
             startActivity(new Intent(this, CartActivity.class));
             return true;

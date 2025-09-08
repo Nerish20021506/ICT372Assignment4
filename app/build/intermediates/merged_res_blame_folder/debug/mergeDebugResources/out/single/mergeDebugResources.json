@@ -1,50 +1,46 @@
 [
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_purchase_history.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_purchase_history.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_search.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_search.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_login.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_view_back_button.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/view_back_button.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\menu_menu_home.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\menu\\menu_home.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_purchase_history.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_purchase_history.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_search.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_search.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_register.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_checkout.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_checkout.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_item_product.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/item_product.xml"
+    },
+    {
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_checkout.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_checkout.xml"
+    },
+    {
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_login.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_login.xml"
     },
     {
         "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_detail.xml.flat",
         "source": "com.koi.ecommerceapp-main-34:/layout/activity_detail.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_detail.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_detail.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_cart.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_cart.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_home.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_home.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/menu_menu_home.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/menu/menu_home.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_cart.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_cart.xml"
-    },
-    {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_register.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_register.xml"
-    },
-    {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_view_toolbar.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\view_toolbar.xml"
-    },
-    {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_item_product.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\item_product.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_home.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/activity_home.xml"
     }
 ]

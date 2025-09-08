@@ -17,11 +17,13 @@ public class FakeRepository {
     private static final List<Order> ORDERS = new ArrayList<>();
 
     static {
-        PRODUCTS.add(new Product(1, "Kiteboard", "High performance board", 799.0));
-        PRODUCTS.add(new Product(2, "Wetsuit", "All-season wetsuit", 299.0));
-        PRODUCTS.add(new Product(3, "Harness", "Comfort-fit harness", 199.0));
-        PRODUCTS.add(new Product(4, "Pump", "Durable hand pump", 49.0));
+        PRODUCTS.add(new Product(1, "iPhone 15", "Latest Apple smartphone", 1499.0));
+        PRODUCTS.add(new Product(2, "Samsung Galaxy S24", "Flagship Android phone", 1399.0));
+        PRODUCTS.add(new Product(3, "MacBook Pro", "16-inch M3 Pro, 16GB RAM, 1TB SSD", 3499.0));
+        PRODUCTS.add(new Product(4, "Sony WH-1000XM5", "Noise-cancelling headphones", 599.0));
+        PRODUCTS.add(new Product(5, "Logitech MX Master 3S", "Wireless performance mouse", 149.0));
     }
+
 
     public static List<Product> getProducts() { return new ArrayList<>(PRODUCTS); }
 
