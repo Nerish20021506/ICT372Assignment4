@@ -28,11 +28,18 @@ public class HomeActivity extends AppCompatActivity {
 
         EditText etSearch = findViewById(R.id.etSearch);
         Button btnCart = findViewById(R.id.btnCart);
+        Button btnHistory = findViewById(R.id.btnHistory);
         RecyclerView rvProducts = findViewById(R.id.rvProducts);
 
         // Cart button → open cart
         btnCart.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+            startActivity(intent);
+        });
+
+        // History button → open purchase history
+        btnHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, PurchaseHistoryActivity.class);
             startActivity(intent);
         });
 

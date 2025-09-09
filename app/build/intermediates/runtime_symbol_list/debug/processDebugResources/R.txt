@@ -3201,6 +3201,7 @@ int id btnAddToCart 0x7f080063
 int id btnCart 0x7f080213
 int id btnCheckout 0x7f080065
 int id btnGoRegister 0x7f080066
+int id btnHistory 0x7f080218
 int id btnLogin 0x7f080067
 int id btnMinus 0x7f080068
 int id btnPlaceOrder 0x7f080069
@@ -3604,6 +3605,7 @@ int id transition_scene_layoutid_cache 0x7f0801f5
 int id transition_transform 0x7f0801f6
 int id triangle 0x7f0801f7
 int id tvDescription 0x7f0801f8
+int id tvEmpty 0x7f080219
 int id tvName 0x7f0801f9
 int id tvPrice 0x7f0801fa
 int id tvQty 0x7f080215

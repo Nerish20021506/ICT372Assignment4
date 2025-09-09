@@ -12,6 +12,7 @@ id btnAddToCart
 id btnCart
 id btnCheckout
 id btnGoRegister
+id btnHistory
 id btnLogin
 id btnMinus
 id btnPlaceOrder
@@ -34,6 +35,7 @@ id rvOrders
 id rvProducts
 id rvResults
 id tvDescription
+id tvEmpty
 id tvName
 id tvPrice
 id tvQty

@@ -3202,6 +3202,7 @@ id btnAddToCart
 id btnCart
 id btnCheckout
 id btnGoRegister
+id btnHistory
 id btnLogin
 id btnMinus
 id btnPlaceOrder
@@ -3605,6 +3606,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvDescription
+id tvEmpty
 id tvName
 id tvPrice
 id tvQty
