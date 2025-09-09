@@ -1,4 +1,3 @@
-
 package com.koi.ecommerceapp;
 
 import android.content.Intent;
@@ -13,7 +12,8 @@ import com.koi.ecommerceapp.data.FakeRepository;
 
 public class CheckoutActivity extends AppCompatActivity {
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
@@ -23,16 +23,27 @@ public class CheckoutActivity extends AppCompatActivity {
         EditText etEmail = findViewById(R.id.etEmail);
         Button btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
 
+        // Prevent empty checkout
+        if (FakeRepository.getCart().isEmpty()) {
+            Toast.makeText(this, "Your cart is empty", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         btnPlaceOrder.setOnClickListener(v -> {
             if (etFullName.getText().toString().isEmpty() ||
-                etAddress.getText().toString().isEmpty() ||
-                etPhone.getText().toString().isEmpty() ||
-                etEmail.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Fill shipping info", Toast.LENGTH_SHORT).show();
+                    etAddress.getText().toString().isEmpty() ||
+                    etPhone.getText().toString().isEmpty() ||
+                    etEmail.getText().toString().isEmpty()) {
+
+                Toast.makeText(this, "Fill in all shipping info", Toast.LENGTH_SHORT).show();
                 return;
             }
+
             FakeRepository.placeOrder();
-            Toast.makeText(this, "Order placed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "✅ Order placed!", Toast.LENGTH_SHORT).show();
+
+            // After checkout → go to Purchase History
             startActivity(new Intent(this, PurchaseHistoryActivity.class));
             finish();
         });

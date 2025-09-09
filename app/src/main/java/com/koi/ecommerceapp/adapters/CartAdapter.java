@@ -10,24 +10,31 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.koi.ecommerceapp.R;
+import com.koi.ecommerceapp.data.FakeRepository;
 import com.koi.ecommerceapp.models.CartItem;
 
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
 
-    private final List<CartItem> cartItems;
+    public interface OnCartChangeListener {
+        void onCartUpdated();
 
-    public CartAdapter(List<CartItem> cartItems) {
+    }
+
+    private final List<CartItem> cartItems;
+    private final OnCartChangeListener listener;
+
+    public CartAdapter(List<CartItem> cartItems, OnCartChangeListener listener) {
         this.cartItems = cartItems;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Reuse item_product.xml so no new file needed
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_product, parent, false);
+                .inflate(R.layout.item_cart, parent, false);
         return new VH(v);
     }
 
@@ -36,17 +43,29 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
         CartItem item = cartItems.get(position);
 
         holder.tvName.setText(item.product.name);
+        holder.tvPrice.setText(String.format("$%.2f each, subtotal: $%.2f",
+                item.product.price, item.getSubtotal()));
+        holder.tvQty.setText(String.valueOf(item.quantity));
 
-        // Show price x quantity = subtotal
-        holder.tvPrice.setText(
-                String.format("$%.2f x %d = $%.2f",
-                        item.product.price,
-                        item.quantity,
-                        item.getSubtotal())
-        );
+        holder.btnMinus.setOnClickListener(v -> {
+            if (item.quantity > 1) {
+                item.quantity--;
+                notifyItemChanged(position);
+                if (listener != null) listener.onCartUpdated();
+            }
+        });
 
-        // Hide the "View Details" button in cart context
-        holder.btnView.setVisibility(View.GONE);
+        holder.btnPlus.setOnClickListener(v -> {
+            item.quantity++;
+            notifyItemChanged(position);
+            if (listener != null) listener.onCartUpdated();
+        });
+
+        holder.btnRemove.setOnClickListener(v -> {
+            FakeRepository.removeFromCart(item.product);
+            notifyItemRemoved(position);
+            if (listener != null) listener.onCartUpdated();
+        });
     }
 
     @Override
@@ -55,14 +74,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.VH> {
     }
 
     static class VH extends RecyclerView.ViewHolder {
-        TextView tvName, tvPrice;
-        Button btnView;
+        TextView tvName, tvPrice, tvQty;
+        Button btnMinus, btnPlus, btnRemove;
 
         VH(View v) {
             super(v);
             tvName = v.findViewById(R.id.tvName);
             tvPrice = v.findViewById(R.id.tvPrice);
-            btnView = v.findViewById(R.id.btnView);
+            tvQty = v.findViewById(R.id.tvQty);
+            btnMinus = v.findViewById(R.id.btnMinus);
+            btnPlus = v.findViewById(R.id.btnPlus);
+            btnRemove = v.findViewById(R.id.btnRemove);
         }
     }
 }

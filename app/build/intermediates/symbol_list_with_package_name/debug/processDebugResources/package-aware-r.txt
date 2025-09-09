@@ -3199,14 +3199,15 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnAddToCart
-id btnBack
 id btnCart
+id btnCheckout
 id btnGoRegister
 id btnLogin
 id btnMinus
 id btnPlaceOrder
 id btnPlus
 id btnRegister
+id btnRemove
 id btnView
 id buttonPanel
 id cache_measures
@@ -3606,6 +3607,7 @@ id triangle
 id tvDescription
 id tvName
 id tvPrice
+id tvQty
 id tvTotal
 id unchecked
 id uniform
@@ -3770,6 +3772,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_cart
 layout item_product
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -3832,7 +3835,6 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
-layout view_back_button
 menu menu_home
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description

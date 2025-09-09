@@ -1,6 +1,8 @@
 package com.koi.ecommerceapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import java.util.Locale;
 public class CartActivity extends AppCompatActivity {
 
     private TextView tvTotal;
+    private List<CartItem> cartItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +28,26 @@ public class CartActivity extends AppCompatActivity {
 
         RecyclerView rvCart = findViewById(R.id.rvCart);
         tvTotal = findViewById(R.id.tvTotal);
+        Button btnCheckout = findViewById(R.id.btnCheckout);
 
-        List<CartItem> cartItems = FakeRepository.getCart();
+        cartItems = FakeRepository.getCart();
 
         rvCart.setLayoutManager(new LinearLayoutManager(this));
-        rvCart.setAdapter(new CartAdapter(cartItems));
+        rvCart.setAdapter(new CartAdapter(cartItems, this::updateTotal));
 
-        updateTotal(cartItems);
+        updateTotal();
+
+        btnCheckout.setOnClickListener(v -> {
+            if (cartItems.isEmpty()) {
+                tvTotal.setText("Cart is empty");
+            } else {
+                Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void updateTotal(List<CartItem> cartItems) {
+    private void updateTotal() {
         double total = 0;
         for (CartItem item : cartItems) {
             total += item.getSubtotal();

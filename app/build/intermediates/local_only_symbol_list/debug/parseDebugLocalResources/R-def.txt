@@ -9,14 +9,15 @@ color teal_700
 color white
 id action_cart
 id btnAddToCart
-id btnBack
 id btnCart
+id btnCheckout
 id btnGoRegister
 id btnLogin
 id btnMinus
 id btnPlaceOrder
 id btnPlus
 id btnRegister
+id btnRemove
 id btnView
 id etAddress
 id etEmail
@@ -35,6 +36,7 @@ id rvResults
 id tvDescription
 id tvName
 id tvPrice
+id tvQty
 id tvTotal
 layout activity_cart
 layout activity_checkout
@@ -44,8 +46,8 @@ layout activity_login
 layout activity_purchase_history
 layout activity_register
 layout activity_search
+layout item_cart
 layout item_product
-layout view_back_button
 menu menu_home
 string add_to_cart
 string app_name

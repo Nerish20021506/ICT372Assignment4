@@ -21,12 +21,11 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        RecyclerView rvResults = findViewById(R.id.rvResults);
-        rvResults.setLayoutManager(new LinearLayoutManager(this));
-
         String query = getIntent().getStringExtra("query");
-        List<Product> results = new ArrayList<>();
+        android.widget.Toast.makeText(this, "Query: " + query, android.widget.Toast.LENGTH_SHORT).show();
+        RecyclerView rvResults = findViewById(R.id.rvResults);
 
+        List<Product> results = new ArrayList<>();
         if (query != null && !query.isEmpty()) {
             for (Product p : FakeRepository.getProducts()) {
                 if (p.name.toLowerCase().contains(query.toLowerCase())) {
@@ -35,14 +34,11 @@ public class SearchActivity extends AppCompatActivity {
             }
         }
 
-        ProductAdapter adapter = new ProductAdapter(results, product -> {
+        rvResults.setLayoutManager(new LinearLayoutManager(this));
+        rvResults.setAdapter(new ProductAdapter(this, results, product -> {
             Intent intent = new Intent(SearchActivity.this, ProductDetailActivity.class);
-            intent.putExtra("productId", product.id);
-            intent.putExtra("productName", product.name);
-            intent.putExtra("productDescription", product.description);
-            intent.putExtra("productPrice", product.price);
+            intent.putExtra("product_id", product.id);
             startActivity(intent);
-        });
-        rvResults.setAdapter(adapter);
+        }));
     }
 }

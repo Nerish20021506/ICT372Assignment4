@@ -1,4 +1,3 @@
-
 package com.koi.ecommerceapp.data;
 
 import com.koi.ecommerceapp.models.CartItem;
@@ -24,7 +23,6 @@ public class FakeRepository {
         PRODUCTS.add(new Product(5, "Logitech MX Master 3S", "Wireless performance mouse", 149.0));
     }
 
-
     public static List<Product> getProducts() { return new ArrayList<>(PRODUCTS); }
 
     public static Product getProductById(int id) {
@@ -33,9 +31,13 @@ public class FakeRepository {
     }
 
     public static List<Product> search(String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return new ArrayList<>(PRODUCTS); // return all when nothing typed
+        }
         String q = query.toLowerCase();
         return PRODUCTS.stream()
-                .filter(p -> p.name.toLowerCase().contains(q) || p.description.toLowerCase().contains(q))
+                .filter(p -> p.name.toLowerCase().contains(q)
+                        || p.description.toLowerCase().contains(q))
                 .collect(Collectors.toList());
     }
 
@@ -49,6 +51,16 @@ public class FakeRepository {
             }
         }
         CART.add(new CartItem(p, qty));
+    }
+
+    // ✅ new method
+    public static void removeFromCart(Product p) {
+        for (int i = 0; i < CART.size(); i++) {
+            if (CART.get(i).product.id == p.id) {
+                CART.remove(i);
+                return;
+            }
+        }
     }
 
     public static double cartTotal() {
