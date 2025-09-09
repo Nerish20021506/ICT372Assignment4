@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.koi.ecommerceapp.data.FakeRepository;
 import com.koi.ecommerceapp.utils.IntentKeys;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,13 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Find views
         EditText etEmail = findViewById(R.id.etEmail);
         EditText etPassword = findViewById(R.id.etPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnGoRegister = findViewById(R.id.btnGoRegister);
 
-        // Handle login
         btnLogin.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
@@ -33,17 +32,20 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            // Navigate to HomeActivity
+            if (!FakeRepository.validateUser(email, password)) {
+                Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // ✅ Success → go to Home
             Intent i = new Intent(this, HomeActivity.class);
             i.putExtra(IntentKeys.EMAIL, email);
             startActivity(i);
             finish();
         });
 
-        // Handle register navigation
         btnGoRegister.setOnClickListener(v -> {
-            Intent i = new Intent(this, RegisterActivity.class);
-            startActivity(i);
+            startActivity(new Intent(this, RegisterActivity.class));
         });
     }
 }

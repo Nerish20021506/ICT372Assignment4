@@ -3,6 +3,7 @@ package com.koi.ecommerceapp.data;
 import com.koi.ecommerceapp.models.CartItem;
 import com.koi.ecommerceapp.models.Order;
 import com.koi.ecommerceapp.models.Product;
+import com.koi.ecommerceapp.models.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,9 @@ public class FakeRepository {
     private static final List<Product> PRODUCTS = new ArrayList<>();
     private static final List<CartItem> CART = new ArrayList<>();
     private static final List<Order> ORDERS = new ArrayList<>();
+    private static final List<User> USERS = new ArrayList<>();
 
+    // Seed products
     static {
         PRODUCTS.add(new Product(1, "iPhone 15", "Latest Apple smartphone", 1499.0));
         PRODUCTS.add(new Product(2, "Samsung Galaxy S24", "Flagship Android phone", 1399.0));
@@ -23,7 +26,10 @@ public class FakeRepository {
         PRODUCTS.add(new Product(5, "Logitech MX Master 3S", "Wireless performance mouse", 149.0));
     }
 
-    public static List<Product> getProducts() { return new ArrayList<>(PRODUCTS); }
+    // ------------------ PRODUCTS ------------------
+    public static List<Product> getProducts() {
+        return new ArrayList<>(PRODUCTS);
+    }
 
     public static Product getProductById(int id) {
         for (Product p : PRODUCTS) if (p.id == id) return p;
@@ -35,13 +41,16 @@ public class FakeRepository {
             return new ArrayList<>(PRODUCTS); // return all when nothing typed
         }
         String q = query.toLowerCase();
+        // ✅ Only search in name now
         return PRODUCTS.stream()
-                .filter(p -> p.name.toLowerCase().contains(q)) // ✅ only name search
+                .filter(p -> p.name.toLowerCase().contains(q))
                 .collect(Collectors.toList());
     }
 
-
-    public static List<CartItem> getCart() { return CART; }
+    // ------------------ CART ------------------
+    public static List<CartItem> getCart() {
+        return CART;
+    }
 
     public static void addToCart(Product p, int qty) {
         for (CartItem ci : CART) {
@@ -53,7 +62,6 @@ public class FakeRepository {
         CART.add(new CartItem(p, qty));
     }
 
-    // ✅ new method
     public static void removeFromCart(Product p) {
         for (int i = 0; i < CART.size(); i++) {
             if (CART.get(i).product.id == p.id) {
@@ -69,9 +77,14 @@ public class FakeRepository {
         return t;
     }
 
-    public static void clearCart() { CART.clear(); }
+    public static void clearCart() {
+        CART.clear();
+    }
 
-    public static List<Order> getOrders() { return ORDERS; }
+    // ------------------ ORDERS ------------------
+    public static List<Order> getOrders() {
+        return ORDERS;
+    }
 
     public static void placeOrder() {
         double total = cartTotal();
@@ -79,5 +92,25 @@ public class FakeRepository {
         Order o = new Order(UUID.randomUUID().toString(), new ArrayList<>(CART), total, new Date());
         ORDERS.add(o);
         clearCart();
+    }
+
+    // ------------------ USERS ------------------
+    public static boolean registerUser(String name, String email, String password) {
+        for (User u : USERS) {
+            if (u.email.equalsIgnoreCase(email)) {
+                return false; // duplicate email
+            }
+        }
+        USERS.add(new User(name, email, password));
+        return true;
+    }
+
+    public static boolean validateUser(String email, String password) {
+        for (User u : USERS) {
+            if (u.email.equalsIgnoreCase(email) && u.password.equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
