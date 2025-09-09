@@ -14,78 +14,77 @@ import com.koi.ecommerceapp.R;
 import com.koi.ecommerceapp.data.FakeRepository;
 import com.koi.ecommerceapp.models.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
 
     public interface OnProductClick {
-        void onViewDetails(Product product);
+        void onView(Product product);
     }
 
     private final Context context;
-    private final List<Product> products;
+    private List<Product> products;
     private final OnProductClick listener;
 
     public ProductAdapter(Context context, List<Product> products, OnProductClick listener) {
         this.context = context;
-        this.products = products;
+        this.products = new ArrayList<>(products);
         this.listener = listener;
     }
 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_product, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
         return new VH(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VH holder, int position) {
-        Product p = products.get(position);
+    public void onBindViewHolder(@NonNull VH h, int i) {
+        Product p = products.get(i);
+        h.tvName.setText(p.name);
+        h.tvPrice.setText(String.format("$%.2f", p.price));
 
-        holder.tvName.setText(p.name);
-        holder.tvPrice.setText(String.format("$%.2f", p.price));
-        holder.tvQty.setText("1");
+        // Default qty = 1
+        h.tvQty.setText("1");
 
-        // – button
-        holder.btnMinus.setOnClickListener(v -> {
-            int qty = Integer.parseInt(holder.tvQty.getText().toString());
-            if (qty > 1) holder.tvQty.setText(String.valueOf(qty - 1));
+        // Quantity controls
+        h.btnMinus.setOnClickListener(v -> {
+            int qty = Integer.parseInt(h.tvQty.getText().toString());
+            if (qty > 1) {
+                h.tvQty.setText(String.valueOf(qty - 1));
+            }
         });
 
-        // + button
-        holder.btnPlus.setOnClickListener(v -> {
-            int qty = Integer.parseInt(holder.tvQty.getText().toString());
-            holder.tvQty.setText(String.valueOf(qty + 1));
+        h.btnPlus.setOnClickListener(v -> {
+            int qty = Integer.parseInt(h.tvQty.getText().toString());
+            h.tvQty.setText(String.valueOf(qty + 1));
         });
 
-        // Add to Cart
-        holder.btnAddToCart.setOnClickListener(v -> {
-            int qty = Integer.parseInt(holder.tvQty.getText().toString());
+        h.btnAddToCart.setOnClickListener(v -> {
+            int qty = Integer.parseInt(h.tvQty.getText().toString());
             FakeRepository.addToCart(p, qty);
         });
 
-        // View Details (delegates to listener)
-        holder.btnView.setOnClickListener(v -> {
-            if (listener != null) listener.onViewDetails(p);
-        });
+        // Whole card opens product detail
+        h.itemView.setOnClickListener(v -> listener.onView(p));
     }
-    public void updateData(List<Product> newProducts) {
-        this.products.clear();
-        this.products.addAll(newProducts);
-        notifyDataSetChanged();
-    }
-
 
     @Override
     public int getItemCount() {
         return products.size();
     }
 
+    public void updateData(List<Product> newProducts) {
+        this.products.clear();
+        this.products.addAll(newProducts);
+        notifyDataSetChanged();
+    }
+
     static class VH extends RecyclerView.ViewHolder {
         TextView tvName, tvPrice, tvQty;
-        Button btnMinus, btnPlus, btnAddToCart, btnView;
+        Button btnMinus, btnPlus, btnAddToCart;
 
         VH(View v) {
             super(v);
@@ -95,7 +94,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
             btnMinus = v.findViewById(R.id.btnMinus);
             btnPlus = v.findViewById(R.id.btnPlus);
             btnAddToCart = v.findViewById(R.id.btnAddToCart);
-            btnView = v.findViewById(R.id.btnView);
         }
     }
 }

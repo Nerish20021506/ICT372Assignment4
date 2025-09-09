@@ -3209,7 +3209,6 @@ id btnPlaceOrder
 id btnPlus
 id btnRegister
 id btnRemove
-id btnView
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3605,9 +3604,13 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvCompanyName
 id tvDescription
 id tvEmpty
 id tvName
+id tvOrderId
+id tvOrderItems
+id tvOrderMeta
 id tvPrice
 id tvQty
 id tvTotal
@@ -3775,6 +3778,7 @@ layout design_text_input_start_icon
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_cart
+layout item_order
 layout item_product
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

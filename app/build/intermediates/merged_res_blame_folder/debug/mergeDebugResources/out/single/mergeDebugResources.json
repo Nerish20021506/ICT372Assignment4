@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\view_back_button.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_login.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_purchase_history.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_purchase_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_login.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\menu_menu_home.xml.flat",
@@ -32,8 +32,8 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\activity_detail.xml"
     },
     {
-        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_purchase_history.xml.flat",
-        "source": "com.koi.ecommerceapp-main-34:/layout/activity_purchase_history.xml"
+        "merged": "com.koi.ecommerceapp-debug-32:/layout_item_order.xml.flat",
+        "source": "com.koi.ecommerceapp-main-34:/layout/item_order.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_activity_home.xml.flat",
@@ -50,9 +50,5 @@
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-debug-32:\\layout_item_product.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.13\\com.koi.ecommerceapp-main-34:\\layout\\item_product.xml"
-    },
-    {
-        "merged": "com.koi.ecommerceapp-debug-32:/layout_activity_home.xml.flat",
-        "source": "com.koi.ecommerceapp-main-34:/layout/activity_home.xml"
     }
 ]

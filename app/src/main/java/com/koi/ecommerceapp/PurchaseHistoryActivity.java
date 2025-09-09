@@ -51,17 +51,29 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
         @Override
         public VH onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = android.view.LayoutInflater.from(parent.getContext())
-                    .inflate(android.R.layout.simple_list_item_2, parent, false);
+                    .inflate(R.layout.item_order, parent, false); // ✅ use custom layout
             return new VH(v);
         }
 
         @Override
         public void onBindViewHolder(VH holder, int position) {
             Order o = orders.get(position);
-            holder.title.setText("Order ID: " + o.id);
-            holder.subtitle.setText(
+
+            holder.tvOrderId.setText("Order ID: " + o.id);
+            holder.tvOrderMeta.setText(
                     String.format(Locale.US, "Total: $%.2f • %s", o.total, df.format(o.createdAt))
             );
+
+            // Build product list string
+            StringBuilder itemsText = new StringBuilder();
+            for (com.koi.ecommerceapp.models.CartItem item : o.items) {
+                itemsText.append("• ")
+                        .append(item.product.name)
+                        .append(" (x")
+                        .append(item.quantity)
+                        .append(")\n");
+            }
+            holder.tvOrderItems.setText(itemsText.toString().trim());
         }
 
         @Override
@@ -70,12 +82,15 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
         }
 
         static class VH extends RecyclerView.ViewHolder {
-            TextView title, subtitle;
+            TextView tvOrderId, tvOrderMeta, tvOrderItems;
+
             VH(View v) {
                 super(v);
-                title = v.findViewById(android.R.id.text1);
-                subtitle = v.findViewById(android.R.id.text2);
+                tvOrderId = v.findViewById(R.id.tvOrderId);
+                tvOrderMeta = v.findViewById(R.id.tvOrderMeta);
+                tvOrderItems = v.findViewById(R.id.tvOrderItems);
             }
         }
     }
+
 }

@@ -33,14 +33,12 @@ public class HomeActivity extends AppCompatActivity {
 
         // Cart button → open cart
         btnCart.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(HomeActivity.this, CartActivity.class));
         });
 
         // History button → open purchase history
         btnHistory.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, PurchaseHistoryActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(HomeActivity.this, PurchaseHistoryActivity.class));
         });
 
         // Load all products initially

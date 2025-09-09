@@ -36,10 +36,10 @@ public class FakeRepository {
         }
         String q = query.toLowerCase();
         return PRODUCTS.stream()
-                .filter(p -> p.name.toLowerCase().contains(q)
-                        || p.description.toLowerCase().contains(q))
+                .filter(p -> p.name.toLowerCase().contains(q)) // ✅ only name search
                 .collect(Collectors.toList());
     }
+
 
     public static List<CartItem> getCart() { return CART; }
 

@@ -19,7 +19,6 @@ id btnPlaceOrder
 id btnPlus
 id btnRegister
 id btnRemove
-id btnView
 id etAddress
 id etEmail
 id etFullName
@@ -34,9 +33,13 @@ id rvCart
 id rvOrders
 id rvProducts
 id rvResults
+id tvCompanyName
 id tvDescription
 id tvEmpty
 id tvName
+id tvOrderId
+id tvOrderItems
+id tvOrderMeta
 id tvPrice
 id tvQty
 id tvTotal
@@ -49,6 +52,7 @@ layout activity_purchase_history
 layout activity_register
 layout activity_search
 layout item_cart
+layout item_order
 layout item_product
 menu menu_home
 string add_to_cart
