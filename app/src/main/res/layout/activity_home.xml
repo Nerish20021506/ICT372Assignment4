@@ -4,20 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Company name -->
-    <TextView
-        android:id="@+id/tvCompanyName"
+    <ImageView
+        android:id="@+id/ivCompanyLogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bikki Electronics"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:gravity="center"
+        android:layout_height="80dp"
+        android:scaleType="fitCenter"
         android:padding="12dp"
-        android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white" />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logoshort" />
 
-    <!-- Search + Cart + History row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +46,6 @@
             android:textColor="@android:color/white"/>
     </LinearLayout>
 
-    <!-- Product list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProducts"
         android:layout_width="match_parent"

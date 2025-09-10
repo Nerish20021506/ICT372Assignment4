@@ -5,6 +5,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ImageView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,7 +38,28 @@ public class ProductDetailActivity extends AppCompatActivity {
             tvName.setText(product.name);
             tvPrice.setText(String.format("$%.2f", product.price));
             tvDescription.setText(product.description);
+            ImageView imgHero = findViewById(R.id.imgHero);
+            imgHero.setImageResource(product.imageResId);
         }
+
+        TextView tvSeeMore = findViewById(R.id.tvSeeMore);
+
+// Limit description to 3 lines initially
+        tvDescription.setMaxLines(5);
+        tvDescription.setEllipsize(android.text.TextUtils.TruncateAt.END);
+
+// Toggle See More / See Less
+        tvSeeMore.setOnClickListener(v -> {
+            if (tvSeeMore.getText().toString().equals("See More")) {
+                tvDescription.setMaxLines(Integer.MAX_VALUE); // expand
+                tvDescription.setEllipsize(null);
+                tvSeeMore.setText("See Less");
+            } else {
+                tvDescription.setMaxLines(3); // collapse
+                tvDescription.setEllipsize(android.text.TextUtils.TruncateAt.END);
+                tvSeeMore.setText("See More");
+            }
+        });
 
         // Quantity buttons
         btnMinus.setOnClickListener(v -> {

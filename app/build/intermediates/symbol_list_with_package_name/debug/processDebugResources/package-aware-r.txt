@@ -1362,6 +1362,8 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color blue_dark
+color blue_primary
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -2990,6 +2992,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable airpods
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3000,11 +3003,13 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable canon
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable hplaptop
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3024,6 +3029,9 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable iphone16
+drawable logo
+drawable logoshort
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3099,6 +3107,7 @@ drawable notify_panel_notification_icon_bg
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable wh
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3351,6 +3360,8 @@ id inward
 id is_pooling_container_tag
 id italic
 id item_touch_helper_previous_elevation
+id ivCompanyLogo
+id ivProduct
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3363,6 +3374,7 @@ id line3
 id linear
 id listMode
 id list_item
+id logo
 id m3_side_sheet
 id marquee
 id masked
@@ -3604,7 +3616,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvCompanyName
 id tvDescription
 id tvEmpty
 id tvName
@@ -3613,6 +3624,7 @@ id tvOrderItems
 id tvOrderMeta
 id tvPrice
 id tvQty
+id tvSeeMore
 id tvTotal
 id unchecked
 id uniform

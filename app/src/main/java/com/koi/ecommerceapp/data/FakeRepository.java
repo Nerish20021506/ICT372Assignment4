@@ -4,6 +4,7 @@ import com.koi.ecommerceapp.models.CartItem;
 import com.koi.ecommerceapp.models.Order;
 import com.koi.ecommerceapp.models.Product;
 import com.koi.ecommerceapp.models.User;
+import com.koi.ecommerceapp.R;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,11 +20,11 @@ public class FakeRepository {
 
     // Seed products
     static {
-        PRODUCTS.add(new Product(1, "iPhone 15", "Latest Apple smartphone", 1499.0));
-        PRODUCTS.add(new Product(2, "Samsung Galaxy S24", "Flagship Android phone", 1399.0));
-        PRODUCTS.add(new Product(3, "MacBook Pro", "16-inch M3 Pro, 16GB RAM, 1TB SSD", 3499.0));
-        PRODUCTS.add(new Product(4, "Sony WH-1000XM5", "Noise-cancelling headphones", 599.0));
-        PRODUCTS.add(new Product(5, "Logitech MX Master 3S", "Wireless performance mouse", 149.0));
+        PRODUCTS.add(new Product(1, "HP Laptop 15-fd0739TU 15.6 inch", "Made for collaboration with a HP True Vision Camera with dual mics and noise reduction.\n\nKey Features:\n• Screen - 15.6 inch FHD (1920 x 1080) SVA Display\n• Speed - Intel Core i5 - 1334U 10 core processor (12MB L3 cache, 1.3 - 4.6GHz)\n• •\tStorage & RAM - 512GB SSD storage with 16GB RAM\n", 1119.0, R.drawable.hplaptop));
+        PRODUCTS.add(new Product(2, "AirPods Pro 2", "Featuring pro-level Active Noise Cancellation1, Adaptive Audio, Transparency mode2, Personalised Spatial Audio3 and a breakthrough in hearing health with a scientifically validated Hearing Test4, clinical-grade Hearing Aid capability4 and Loud Sound Reduction.\n\nKey Features:\n• Adaptive Audio dynamically blends Transparency mode and Active Noise Cancellation to deliver the best listening experience for you in any environment\n• •\tPersonalised Spatial Audio surrounds you in sound tuned just for you\n• Charge with a USB-C connector or an Apple Watch, MagSafe or Qi-certified charger\n", 348.0, R.drawable.airpods));
+        PRODUCTS.add(new Product(3, "WH-CH520", "The WH-CH520 is a lightweight on-ear wireless headphone for casual use. Long battery-life, quick charging and handsfree voice calls, with multipoint, also  make this great-value headphone an easy choice. A first for this category of headphone, the companion app provides many features, including adjustable sound and other custom settings.\n\nKey Features:\n• Sound quality: DSEE music-upscaling for better sounding music\n• Battery: Up to 50 hours battery life with quick charging\n• Enhanced feature: Multipoint connectivity and clear voice calls\n", 79.0, R.drawable.wh));
+        PRODUCTS.add(new Product(4, "Phone 16 Pro Max", "The iPhone 16 Pro Max features a larger 6.9-inch display, the powerful A18 Pro chip, an upgraded camera system with a 48MP ultrawide sensor, and improved recording capabilities with 4K 120fps video in Dolby Vision. It also introduces new features like Apple Intelligence for AI tasks, Wi-Fi 7 support for faster connectivity, and a dedicated camera control button. The design includes a titanium frame, slimmer bezels, and enhanced IP68 water resistance.\n\nKey Features:\n• Built for Apple Intelligence\n• Stunning titanium design\n• Camera Control with 4K 120 fps Dolby Vision\n", 1837.0, R.drawable.iphone16));
+        PRODUCTS.add(new Product(5, "Canon EOS 1500D DSLR Camera with 18-55mm Lens", "The Canon EOS 1500D is an entry-level DSLR camera with an 18-55mm lens kit designed for beginners, featuring a 24.1MP APS-C CMOS sensor and DIGIC 4+ processor for high-quality images and Full HD video. Key features include an optical viewfinder, Scene Intelligent Auto mode, built-in Wi-Fi/NFC for sharing, a 9-point autofocus system, and creative filters, making it a user-friendly option for capturing everyday moments and developing photography skills.\n\nKey Features:\n• Sensor: 24.1MP APS-C sized sensor\n• Screen: High resolution 3 inch LCD screen\n• Modes: Understand each mode as you use it with built-in guide\n", 849.0, R.drawable.canon));
     }
 
     // ------------------ PRODUCTS ------------------

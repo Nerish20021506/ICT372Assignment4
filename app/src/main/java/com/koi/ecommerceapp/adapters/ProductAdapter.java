@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -67,6 +68,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
             FakeRepository.addToCart(p, qty);
         });
 
+        // Set product image
+        h.ivProduct.setImageResource(p.imageResId);
+
         // Whole card opens product detail
         h.itemView.setOnClickListener(v -> listener.onView(p));
     }
@@ -85,6 +89,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
     static class VH extends RecyclerView.ViewHolder {
         TextView tvName, tvPrice, tvQty;
         Button btnMinus, btnPlus, btnAddToCart;
+        ImageView ivProduct;
 
         VH(View v) {
             super(v);
@@ -94,6 +99,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.VH> {
             btnMinus = v.findViewById(R.id.btnMinus);
             btnPlus = v.findViewById(R.id.btnPlus);
             btnAddToCart = v.findViewById(R.id.btnAddToCart);
+            ivProduct = v.findViewById(R.id.ivProduct);
         }
     }
 }

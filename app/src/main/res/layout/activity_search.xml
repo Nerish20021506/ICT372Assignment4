@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <!-- Search field wrapped in a Material TextInputLayout for better UX -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

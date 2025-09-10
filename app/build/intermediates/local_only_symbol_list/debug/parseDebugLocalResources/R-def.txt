@@ -1,12 +1,21 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color blue_dark
+color blue_primary
 color purple_200
 color purple_500
 color purple_700
 color teal_200
 color teal_700
 color white
+drawable airpods
+drawable canon
+drawable hplaptop
+drawable iphone16
+drawable logo
+drawable logoshort
+drawable wh
 id action_cart
 id btnAddToCart
 id btnCart
@@ -29,11 +38,13 @@ id etQty
 id etQuery
 id etSearch
 id imgHero
+id ivCompanyLogo
+id ivProduct
+id logo
 id rvCart
 id rvOrders
 id rvProducts
 id rvResults
-id tvCompanyName
 id tvDescription
 id tvEmpty
 id tvName
@@ -42,6 +53,7 @@ id tvOrderItems
 id tvOrderMeta
 id tvPrice
 id tvQty
+id tvSeeMore
 id tvTotal
 layout activity_cart
 layout activity_checkout

@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Order ID -->
         <TextView
             android:id="@+id/tvOrderId"
             android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
             android:textSize="16sp"
             android:textColor="@android:color/black"/>
 
-        <!-- Total + Date -->
         <TextView
             android:id="@+id/tvOrderMeta"
             android:layout_width="wrap_content"
@@ -33,7 +31,6 @@
             android:layout_marginTop="4dp"
             android:textColor="@android:color/darker_gray"/>
 
-        <!-- Order items -->
         <TextView
             android:id="@+id/tvOrderItems"
             android:layout_width="match_parent"

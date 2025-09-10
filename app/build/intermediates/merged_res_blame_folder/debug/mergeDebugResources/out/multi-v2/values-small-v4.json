@@ -4,7 +4,7 @@
             "outputFile": "com.koi.ecommerceapp-mergeDebugResources-30:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\8.13\\transforms\\5d6d9cc6e325e0143b1dcf0d1e1d775c\\transformed\\material-1.12.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\neris\\.gradle\\caches\\8.13\\transforms\\5d6d9cc6e325e0143b1dcf0d1e1d775c\\transformed\\material-1.12.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
